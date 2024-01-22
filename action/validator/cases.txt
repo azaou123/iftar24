@@ -1,0 +1,140 @@
+** Case 1 : **************************************************************************************
+1
+Array ( 
+	[0] => Toute réclamation doit être adressée au service de scolarité de votre établissement 
+)
+Données entrées sont invalide 
+** Case 2 : **************************************************************************************
+7
+Array ( 
+	[0] => 2020 
+	[1] => g136712581 
+	[2] => Non inscrit 
+	[3] => Cycle normal 
+	[4] => Non 
+	[5] => Réinscription/Inscription non reçue ou les données envoyées par votre établissement 
+           sont erronées, Veuillez contacter le service chargé des bourses de votre établissement. 
+	[6] => Toute réclamation doit être adressée au service de scolarité de votre établissement 
+)
+Données valide mais aucune Réinscription/Inscription non reçue
+** Case 3 : **************************************************************************************
+2
+Array ( 
+	[0] => Aucun étudiant ne correspond à ce CNE avec cette année de Bac ! 
+	[1] => Toute réclamation doit être adressée au service de scolarité de votre établissement 
+)
+Pas de correspendance entre cycle et CNE ou bein abac
+** Case 4 : **************************************************************************************
+9
+Array ( 
+	[0] => 2021 
+	[1] => G138712566 
+	[2] => Faculté des Sciences As-Samlalia Marrakech 
+	[3] => Cycle normal 
+	[4] => Non 
+	[5] => AGENCE MARRAKECH SIDI ABBAD 
+	[6] => Année universitaire  2022 / 2020 
+	[7] => Toute réclamation doit être adressée au service de scolarité de votre établissement 
+	[8] => BOURSE COMPLETE
+)
+** Case 5 : **************************************************************************************
+7
+Array ( 
+	[0] => 2019 
+	[1] => G134726413 
+	[2] => Faculté des Sciences As-Samlalia Marrakech 
+	[3] => Cycle normal 
+	[4] => Non 
+	[5] => Veuillez contacter le service chargé des bourses de votre établissement. 
+	[6] => Toute réclamation doit être adressée au service de scolarité de votre établissement 
+)
+Etat de bourse inconnu 
+** Case 6 : **************************************************************************************
+7
+Array ( 
+	[0] => 2022 
+	[1] => G132250497 
+	[2] => Faculté des Sciences As-Samlalia Marrakech 
+	[3] => Cycle normal 
+	[4] => Bourse non accordée 
+	[5] => Vous n'êtes pas boursier 
+	[6] => Toute réclamation doit être adressée au service de scolarité de votre établissement 
+)
+Non Boursé
+** Case 6 : **************************************************************************************
+7
+Array ( 
+	[0] => 2022 
+	[1] => G132250497 
+	[2] => Faculté des Sciences As-Samlalia Marrakech 
+	[3] => Cycle normal 
+	[4] => Bourse non accordée 
+	[5] => Vous n'êtes pas boursier 
+	[6] => Toute réclamation doit être adressée au service de scolarité de votre établissement 
+)
+a revoir (non accordée) 
+** Case 7 : **************************************************************************************
+9
+Array ( 
+	[0] => 2022 
+	[1] => G131684810 
+	[2] => Faculté des Sciences As-Samlalia Marrakech 
+	[3] => Cycle normal 
+	[4] => Non 
+	[5] => AGENCE MARRAKECH SIDI ABBAD 
+	[6] => Année universitaire  2022 / 2020 
+	[7] => Toute réclamation doit être adressée au service de scolarité de votre établissement 
+	[8] => DEMI BOURSE 
+)
+DEMI Bourse
+** Case 8 : **************************************************************************************
+7
+Array ( 
+	[0] => 2021 
+	[1] => Z214502501 
+	[2] => Faculté des Sciences As-Samlalia Marrakech 
+	[3] => Cycle normal 
+	[4] => Bourse non accordée 
+	[5] => Vous n'êtes pas boursier 
+	[6] => Toute réclamation doit être adressée au service de scolarité de votre établissement 
+)
+Non Boursé
+
+
+
+
+
+
+
+// URL for Scraping
+$url = 'https://e-bourse-maroc.onousc.ma/page2.php';  // Adjust the action attribute of the form
+
+// Define the form data you want to submit
+$formData = [
+    'cne' => 'G131512603',  // Replace 'your_cne_value' with the actual CNE value
+    'abac' => '2022',  // Replace 'your_abac_value' with the actual ABAC value
+    'type' => '1',  // Replace 'your_type_value' with the actual Type value
+];
+
+// Create an instance of the Validator class
+$validator = new Validator($url, $formData);
+// Fetch data using cURL
+$output = $validator->fetchData();
+// Extract h3 elements
+$data = $validator->extractData($output);
+
+
+// Display the extracted data
+echo count($data).'<br>';
+print_r($data);
+
+
+
+
+
+
+
+
+
+
+
