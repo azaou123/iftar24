@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include '../action/Database.php';
 
 $db = Database::getInstance();
@@ -266,7 +266,7 @@ $conn->close();
                                        </a>
                                        <!-- Modal -->
                                        <div class="modal fade" id="showInscrit<?php echo $student['id']; ?>" tabindex="-1" aria-labelledby="showInscritLabel<?php echo $student['id']; ?>" aria-hidden="true">
-                                          <div class="modal-dialog">
+                                          <div class="modal-dialog" style="max-width: 60%;">
                                              <div class="modal-content">
                                                 <div class="modal-header">
                                                 <h5 class="modal-title" id="showInscritLabel<?php echo $student['id']; ?>">Modal title</h5>
@@ -301,19 +301,19 @@ $conn->close();
                 <hr class="mt-0 mb-1 mt-2">
                 <div class="row pt-1">
                   <div class="col-6">Bourse : </div>
-                  <div class="col-6"><strong><?php echo $student['etat_bourse']?></strong></div>
+                  <div class="col-6"><strong><?php echo '<span style="color: red;">' . ucfirst($student['etat_bourse']) . '</span> | <span style="color: green;">' . ucfirst(@$_SESSION['scripted_info']['bource']) . '</span>'?></strong></div>
                   <hr>
                   <div class="col-6">Cité : </div>
-                  <div class="col-6"><strong><?php echo $student['cite']?></strong></div>
+                  <div class="col-6"><strong><?php echo '<span style="color: red;">' . ucfirst($student['cite']) . '</span> | <span style="color: green;">' . ucfirst(@$_SESSION['scripted_info']['cite']) . '</span>'?></strong></div>
                   <hr>
                   <div class="col-6">Location : </div>
-                  <div class="col-6"><strong><?php echo $student['location']?></strong></div>
+                  <div class="col-6"><strong><?php echo '<span style="color: red;">' . ucfirst($student['location']) . '</span> | <span style="color: green;">' . ucfirst(@$_SESSION['scripted_info']['residence']) . '</span>'?></strong></div>
                   <hr>
                   <div class="col-6">Adresse Location : </div>
-                  <div class="col-6"><strong><?php echo $student['adresse_actuel']?></strong></div>
+                  <div class="col-6"><strong><?php echo '<span style="color: red;">' . ucfirst($student['adresse_actuel'])?></strong></div>
                   <hr>
                   <div class="col-6">Orphelin : </div>
-                  <div class="col-6"><strong><?php echo $student['orphelin']?></strong></div>
+                  <div class="col-6"><strong><?php echo '<span style="color: red;">' . ucfirst($student['orphelin']) . '</span> | <span style="color: green;">' . ucfirst(@$_SESSION['scripted_info']['orphelin']) . '</span>'?></strong></div>
                 </div>
                 
               </div>

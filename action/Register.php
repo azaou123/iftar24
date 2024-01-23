@@ -84,6 +84,32 @@ if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadFile)) {
             default:
                 break ;
         }
+        $_SESSION['scripted_info']['orphelin'] = $orphelin;
+        $_SESSION['scripted_info']['cite'] = $cite;
+        $_SESSION['scripted_info']['location'] = $location;
+        switch ($bource) {
+            case 0:
+                $_SESSION['scripted_info']['bource'] = 'Non';
+                break;
+            case 1:
+                $_SESSION['scripted_info']['bource'] = 'Demi';
+                break;
+            case 2:
+                $_SESSION['scripted_info']['bource'] = 'Complet';
+            default:
+                $_SESSION['scripted_info']['bource'] = 'Error';
+                break;
+        }
+        switch ($residence) {
+            case 0:
+                $_SESSION['scripted_info']['residence'] = 'Non';
+                break;
+            case 1:
+                $_SESSION['scripted_info']['residence'] = 'Oui';
+            default:
+                $_SESSION['scripted_info']['residence'] = 'indéfini';
+                break;
+        }
         if ($orphelin=='oui') $orphelin = 1 ; else $orphelin = 0;
         if ($location=='oui') $location = 1 ; else $location = 0;
         if ($cite=='oui') $cite = 1 ; else $cite = 0;
