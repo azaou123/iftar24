@@ -301,19 +301,19 @@ $conn->close();
                 <hr class="mt-0 mb-1 mt-2">
                 <div class="row pt-1">
                   <div class="col-6">Bourse : </div>
-                  <div class="col-6"><strong>Etat</strong></div>
+                  <div class="col-6"><strong><?php echo $student['etat_bourse']?></strong></div>
                   <hr>
                   <div class="col-6">Cité : </div>
-                  <div class="col-6"><strong>Etat</strong></div>
+                  <div class="col-6"><strong><?php echo $student['cite']?></strong></div>
                   <hr>
                   <div class="col-6">Location : </div>
-                  <div class="col-6"><strong>Etat</strong></div>
+                  <div class="col-6"><strong><?php echo $student['location']?></strong></div>
                   <hr>
                   <div class="col-6">Adresse Location : </div>
-                  <div class="col-6"><strong>Etat</strong></div>
+                  <div class="col-6"><strong><?php echo $student['adresse_actuel']?></strong></div>
                   <hr>
                   <div class="col-6">Orphelin : </div>
-                  <div class="col-6"><strong>Etat</strong></div>
+                  <div class="col-6"><strong><?php echo $student['orphelin']?></strong></div>
                 </div>
                 
               </div>
