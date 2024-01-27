@@ -41,7 +41,7 @@ $conn->close();
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <title>IFTAR 24 UCA</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -96,7 +96,8 @@ $conn->close();
                   <h4>General</h4>
                   <ul class="list-unstyled components">
                      <li class="active">
-                        <a href="index.php" data-toggle="collapse" aria-expanded="false" class=""><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                     <!-- data-toggle="collapse" aria-expanded="false"  -->
+                        <a href="index.php" class=""><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                      </li>
                      <li><a href="inscription.php"><i class="fa fa-map purple_color2"></i> <span>Inscription</span></a></li>
                      <li><a href="pointage.php"><i class="fa fa-bar-chart-o green_color"></i> <span>Pointage</span></a></li>
@@ -122,7 +123,7 @@ $conn->close();
                                  <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
                                  <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
                               </ul>
-                              <ul class="user_profile_dd">
+                              <ul class="user_profile_dd" style="z-index: 100;">
                                  <li>
                                     <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
                                     <div class="dropdown-menu">
@@ -147,7 +148,7 @@ $conn->close();
                            <div class="page_title">
                            <div class="row">
                               <div class="col-6">
-                                 <h3 class="pt-2">Les Etudiants Inscrits :</h3>
+                                 <h3 class="pt-2">Les Etudiants Inscrits</h3>
                               </div>
                               <div class="col-6">
                                  <form id="SearchForm" onsubmit="searchStudents(event)">
@@ -257,8 +258,8 @@ $conn->close();
                                  ?>
                                  >
                                     <th scope="row"><?php echo $i ; ?></th>
-                                    <td><?php echo $student['prenom'].' '.$student['nom']; ?></td>
-                                    <td><?php echo $student['cne']; ?></td>
+                                    <td><?php echo strtoupper($student['nom']).' '.ucfirst($student['prenom']); ?></td>
+                                    <td><?php echo ucfirst($student['cne']); ?></td>
                                     <td>Oui</td>
                                     <td>
                                        <a data-bs-toggle="modal" data-bs-target="#showInscrit<?php echo $student['id']; ?>">
@@ -279,13 +280,13 @@ $conn->close();
               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
               <img src="<?php echo $student['photo']; ?>"
                 alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-              <h5><?php echo $student['prenom'].' '.$student['nom']; ?></h5>
-              <p><?php echo $student['cne']; ?></p>
+              <h5><?php echo ucfirst($student['nom']).' '.ucfirst($student['prenom']); ?></h5>
+              <p><?php echo ucfirst($student['cne']); ?></p>
               <i class="far fa-edit mb-5"></i>
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
-                <h6>Informations :</h6>
+                <h6>Informations</h6>
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
                   <div class="col-8 mb-1">
@@ -315,7 +316,6 @@ $conn->close();
                   <div class="col-6">Orphelin : </div>
                   <div class="col-6"><strong><?php echo '<span style="color: red;">' . ucfirst($student['orphelin']) . '</span> | <span style="color: green;">' . ucfirst(@$_SESSION['scripted_info']['orphelin']) . '</span>'?></strong></div>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -323,7 +323,7 @@ $conn->close();
                                                 </div>
                                                 <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                                                 </div>
                                              </div>
                                           </div>
@@ -344,9 +344,7 @@ $conn->close();
                   <!-- footer -->
                   <div class="container-fluid">
                      <div class="footer">
-                        <p>Copyright © 2018 Designed by html.design. All rights reserved.<br><br>
-                           Distributed By: <a href="https://themewagon.com/">ThemeWagon</a>
-                        </p>
+                        <p>Copyright © 2024 - IFTAR 24</p>
                      </div>
                   </div>
                </div>
