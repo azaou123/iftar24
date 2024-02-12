@@ -1,4 +1,4 @@
-               <!-- topbar -->
+<!-- topbar -->
                <div class="topbar">
                   <nav class="navbar navbar-expand-lg navbar-light">
                      <div class="full">
@@ -16,7 +16,7 @@
                               </ul> -->
                               <ul class="user_profile_dd">
                                  <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.png" alt="#" /><span class="name_user"><?php echo strtoupper($_SESSION['user']);?></span></a>
                                     <div class="dropdown-menu">
                                        <a class="dropdown-item" href="profile.html">My Profile</a>
                                        <!-- <a class="dropdown-item" href="settings.html">Settings</a>
