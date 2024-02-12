@@ -17,13 +17,13 @@ $sql = "INSERT INTO contact_messages (message, name, email, subject)
 if ($conn->query($sql) === TRUE) {
     // Successful insertion
     session_start();
-    $_SESSION['success_message'] = "Message sent successfully";
+    $student['bourse']['success_message'] = "Message sent successfully";
     header("Location: ../contact.php");
     exit();
 } else {
     // Error during insertion
     session_start();
-    $_SESSION['error_message'] = "Error: " . $sql . "<br>" . $conn->error;
+    $student['bourse']['error_message'] = "Error: " . $sql . "<br>" . $conn->error;
     header("Location: ../contact.php");
     exit();
 }

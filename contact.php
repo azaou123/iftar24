@@ -90,13 +90,13 @@
         <div class="col-lg-8">
           <?php
             session_start();
-            if (isset($_SESSION['success_message'])) {
-                echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
-                unset($_SESSION['success_message']);
+            if (isset($student['bourse']['success_message'])) {
+                echo '<div class="alert alert-success">' . $student['bourse']['success_message'] . '</div>';
+                unset($student['bourse']['success_message']);
             }
-            if (isset($_SESSION['error_message'])) {
-                echo '<div class="alert alert-danger">' . $_SESSION['error_message'] . '</div>';
-                unset($_SESSION['error_message']);
+            if (isset($student['bourse']['error_message'])) {
+                echo '<div class="alert alert-danger">' . $student['bourse']['error_message'] . '</div>';
+                unset($student['bourse']['error_message']);
             }
           ?>
           <form class="form-contact contact_form" action="action/contact_process.php" method="post">

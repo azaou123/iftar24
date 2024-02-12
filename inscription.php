@@ -113,7 +113,7 @@ margin-top:0;
 </head>
 <body>
 <?php
-if (!isset($_SESSION["inscription_success"])) {
+if (!isset($student['bourse']["inscription_success"])) {
 ?>
 <form action="action/Register.php" method="post" enctype="multipart/form-data">
     <!-- Your existing HTML content -->
@@ -404,7 +404,7 @@ $(document).ready(function () {
 <div class="container mt-5 justify-content-center text-center align-items-center m-5">
     <div class="alert alert-success" role="alert">
         <h4 class="alert-heading">Congratulations!</h4>
-        <p><?php echo $_SESSION['inscription_success']; ?></p>
+        <p><?php echo $student['bourse']['inscription_success']; ?></p>
         <hr>
         <p class="mb-0">Merci.</p>
     </div>

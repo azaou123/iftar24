@@ -3415,3 +3415,36 @@ table.projects tr td:first-child {
     height: 100%;
     min-height: 720px;
 }
+
+/* Start Login Form */
+.login {
+    width: 300px;
+    margin: 100px auto;
+    background-color: transparent;
+}
+
+.login h4 {
+    color: #888;
+}
+
+.login input {
+    margin-bottom: 10px;
+}
+
+.login .form-control {
+    background-color: #e5e5e5;
+}
+
+.login .btn {
+    background-color: #008dde;
+}
+/* End Login Form */
+
+/* Start Inscription Style */
+
+.action-part .delete_icon {
+    border: none;
+    background-color: transparent;
+}
+
+/* End Inscription Style */

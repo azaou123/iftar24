@@ -84,30 +84,30 @@ if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadFile)) {
             default:
                 break ;
         }
-        $_SESSION['scripted_info']['orphelin'] = $orphelin;
-        $_SESSION['scripted_info']['cite'] = $cite;
-        $_SESSION['scripted_info']['location'] = $location;
+        // $_SESSION['scripted_info']['orphelin'] = $orphelin;
+        // $_SESSION['scripted_info']['cite'] = $cite;
+        // $_SESSION['scripted_info']['location'] = $location;
         switch ($bource) {
             case 0:
-                $_SESSION['scripted_info']['bource'] = 'Non';
+                $student['bourse']['scripted_info']['bource'] = 'Non';
                 break;
             case 1:
-                $_SESSION['scripted_info']['bource'] = 'Demi';
+                $student['bourse']['scripted_info']['bource'] = 'Demi';
                 break;
             case 2:
-                $_SESSION['scripted_info']['bource'] = 'Complet';
+                $student['bourse']['scripted_info']['bource'] = 'Complet';
             default:
-                $_SESSION['scripted_info']['bource'] = 'Error';
+                $student['bourse']['scripted_info']['bource'] = 'Error';
                 break;
         }
         switch ($residence) {
             case 0:
-                $_SESSION['scripted_info']['residence'] = 'Non';
+                $student['bourse']['scripted_info']['residence'] = 'Non';
                 break;
             case 1:
-                $_SESSION['scripted_info']['residence'] = 'Oui';
+                $student['bourse']['scripted_info']['residence'] = 'Oui';
             default:
-                $_SESSION['scripted_info']['residence'] = 'indéfini';
+                $student['bourse']['scripted_info']['residence'] = 'indéfini';
                 break;
         }
         if ($orphelin=='oui') $orphelin = 1 ; else $orphelin = 0;
@@ -116,7 +116,7 @@ if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadFile)) {
         $sql_studata = "INSERT INTO studata (id, cne, resident, bourse, orphelin, location, cite)
             VALUES ('$last_inserted_id', '$cne', '$residence', '$bource', '$orphelin', '$location', '$cite')";
         if ($conn->query($sql_studata) === TRUE) {
-            $_SESSION["inscription_success"] = "Votre Demandes es Enregistré Avec succès.";
+            $student['bourse']["inscription_success"] = "Votre Demandes es Enregistré Avec succès.";
             header("Location: ../inscription.php");
         } else {
             echo "Error: " . $sql_studata . "<br>" . $conn->error;
@@ -130,4 +130,4 @@ else {
 }
 
 $conn->close();
-?>
+
