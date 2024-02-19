@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Etrain</title>
+    <title>Contact</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -33,7 +33,7 @@
               <div class="col-lg-12">
                   <nav class="navbar navbar-expand-lg navbar-light">
                       <a class="navbar-brand logo_1" href="index.html"> <img src="img/single_page_logo.png" alt="logo"> </a>
-                      <a class="navbar-brand logo_2" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                      <a class="navbar-brand logo_2" href="index.html"> <img src="img/logo.png" alt="logo" width="300"> </a>
                       <button class="navbar-toggler" type="button" data-toggle="collapse"
                           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                           aria-expanded="false" aria-label="Toggle navigation">
@@ -90,13 +90,13 @@
         <div class="col-lg-8">
           <?php
             session_start();
-            if (isset($student['bourse']['success_message'])) {
-                echo '<div class="alert alert-success">' . $student['bourse']['success_message'] . '</div>';
-                unset($student['bourse']['success_message']);
+            if (isset($_SESSION['success_message'])) {
+                echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+                unset($_SESSION['success_message']);
             }
-            if (isset($student['bourse']['error_message'])) {
-                echo '<div class="alert alert-danger">' . $student['bourse']['error_message'] . '</div>';
-                unset($student['bourse']['error_message']);
+            if (isset($_SESSION['error_message'])) {
+                echo '<div class="alert alert-danger">' . $_SESSION['error_message'] . '</div>';
+                unset($_SESSION['error_message']);
             }
           ?>
           <form class="form-contact contact_form" action="action/contact_process.php" method="post">
