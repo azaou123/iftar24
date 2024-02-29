@@ -10,6 +10,11 @@ if (!isset($_SESSION['user'])){
    header('Location: index.php');
 }
 
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+    if (isset($_POST[""])){
+    }
+}
+
 // Select all registred students 
 $sql = "SELECT * FROM pointage"; // Initial query
 $pointage = $conn->query($sql);
@@ -63,9 +68,9 @@ include 'includes/header.php';
                                     <button type="submit" class="btn btn-primary my-3">
                                         Aller
                                     </button>
-                                    <button class="btn btn-primary my-3" onclick="alert('use camera!')">
+                                    <!-- <button class="btn btn-primary my-3" onclick="alert('use camera!')">
                                     <i class="fa fa-table purple_color2 mx-3"></i>
-                                    </button>
+                                    </button> -->
                                 </form>
                             </div>
                         </div>
