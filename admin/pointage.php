@@ -9,6 +9,12 @@ if (!isset($_SESSION['user'])) {
    header('Location: index.php');
 }
 
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+   if (isset($_POST["id_j"])) {
+      $_SESSION['id-j'] = $_POST['id_j'];
+   }
+}
+
 // Select all registred students 
 $sql = "SELECT * FROM jours"; // Initial query
 $pointage = $conn->query($sql);
@@ -51,39 +57,45 @@ $conn->close();
                                     <div class="text-info text-center mt-3">
                                        <h4>500</h4>
                                     </div>
-                                    <div class="text-info text-center mt-2">
-                                       <a href="point1.php?id=0">
-                                          <i class="fa-solid fa-gear fs-3 text-danger"></i>
-                                       </a>
-                                    </div>
+                                    <form method="POST">
+                                       <div class="text-info text-center mt-2">
+                                       <input type="hidden" name="id_j" value="0">
+                                          <a href="point1.php">
+                                             <i class="fa-solid fa-gear fs-3 text-danger"></i>
+                                          </a>
+                                       </div>
+                                    </form>
                                  </div>
                               </div>
                            </div>
                         </div>
                         <?php
                         while ($row = $pointage->fetch_assoc()) {
-                           if ($row['id'] > 0): ?>
-                           <div class="col-md-3 my-2">
-                              <div class="card border-info mx-sm-1 p-3">
-                                 <div class="row">
-                                    <div class="col-4"></div>
-                                    <div class="col-4 card border-info shadow text-info p-3 my-card rounded-circle justify-content-center align-items-center">
-                                       <i class="fa-solid fa- float-center"><?php echo $row['id']; ?></i>
+                           if ($row['id'] > 0) : ?>
+                              <div class="col-md-3 my-2">
+                                 <div class="card border-info mx-sm-1 p-3">
+                                    <div class="row">
+                                       <div class="col-4"></div>
+                                       <div class="col-4 card border-info shadow text-info p-3 my-card rounded-circle justify-content-center align-items-center">
+                                          <i class="fa-solid fa- float-center"><?php echo $row['id']; ?></i>
+                                       </div>
+                                       <div class="col-4"></div>
                                     </div>
-                                    <div class="col-4"></div>
-                                 </div>
-                                 <div class="text-info text-center mt-3">
-                                    <h4><?php echo $row['status']; ?></h4>
-                                 </div>
-                                 <div class="text-info text-center mt-2">
-                                    <a href="point1.php?id=<?php echo $row['id']; ?>">
-                                       <i class="fa-solid fa-gear fs-3 text-danger"></i>
-                                    </a>
+                                    <div class="text-info text-center mt-3">
+                                       <h4><?php echo $row['status']; ?></h4>
+                                    </div>
+                                    <form method="POST">
+                                    <div class="text-info text-center mt-2">
+                                    <input type="hidden" name="id_j" value=<?php echo $row['id']; ?>>
+                                       <a href="point1.php">
+                                          <i class="fa-solid fa-gear fs-3 text-danger"></i>
+                                       </a>
+                                    </div>
+                                    </form>
                                  </div>
                               </div>
-                           </div>
                         <?php
-                        endif;
+                           endif;
                         }
                         ?>
                      </div>
